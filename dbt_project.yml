@@ -18,5 +18,9 @@ clean-targets:
 
 models:
   dbt_bigquery_info_schema:
-    example:
+    staging:
       +materialized: view
+
+vars:
+  dbt_bigquery_info_schema:
+    flat_rate_pricing_enabled: false
