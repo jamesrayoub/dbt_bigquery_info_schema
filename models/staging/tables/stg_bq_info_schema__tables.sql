@@ -6,7 +6,7 @@ select
     /* table details */
     creation_time as created_at,
     table_type,
-    is_insertable_into,
+    is_insertable_into = 'YES' as is_insertable_into,
     ddl,
 
 from {{ info_schema_source('TABLES') }}

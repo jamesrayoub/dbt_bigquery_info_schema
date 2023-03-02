@@ -1,0 +1,25 @@
+version: 2
+models:
+- name: stg_bq_info_schema__table_options
+  description: >
+    The INFORMATION_SCHEMA.TABLE_OPTIONS view contains one row for each option, for each table or view in a dataset.
+  columns:
+  - name: project_id
+    description: >
+      The project ID of the project that contains the dataset.
+  - name: dataset_id
+    description: >
+      The name of the dataset that contains the table also referred to as the datasetId.
+  - name: table_id
+    description: >
+      The name of the table or view also referred to as the tableId.
+  - name: option_name
+    description: >
+      One of the name values in the [options table](https://cloud.google.com/bigquery/docs/information-schema-table-options#options_table).
+  - name: option_type
+    description: >
+      One of the data type values in the [options table](https://cloud.google.com/bigquery/docs/information-schema-table-options#options_table).
+  - name: option_value
+    description: >
+      One of the value options in the [options table](https://cloud.google.com/bigquery/docs/information-schema-table-options#options_table).
+  

@@ -1,12 +1,12 @@
 select
-    /* primary key */
+    /* primary keys */
+    job_id,
     period_start as period_started_at,
     /* timestamps */
     job_creation_time as job_created_at,
     job_start_time as job_started_at,
     job_end_time as job_ended_at,
     /* foreign keys */ 
-    job_id,
     reservation_id,
     /* job details */
     state as job_state,

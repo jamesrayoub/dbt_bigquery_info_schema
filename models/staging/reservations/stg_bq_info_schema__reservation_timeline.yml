@@ -1,0 +1,34 @@
+version: 2
+models:
+- name: stg_bq_info_schema__reservation_timeline
+  description: >
+    The INFORMATION_SCHEMA.RESERVATIONS_TIMELINE view shows timeslices of reservation metadata for each 
+    reservation admin project for every minute. To compare slot usage to slot capacity, you can combine 
+    the reservation information with the jobs timeline by using the reservation timeline view.
+  columns:
+  - name: reservation_name
+    description: >
+      User provided reservation name.
+  - name: period_start
+    description: >
+      Start time of this one-minute period.
+  - name: slots_assigned
+    description: >
+      The number of slots assigned to this reservation.
+  - name: slots_max_assigned
+    description: >
+      The maximum slot capacity for this reservation, including slot sharing. If ignore_idle_slots is true, 
+      this is the same as slots_assigned, otherwise this is the total number of slots in all capacity commitments 
+      in the admin project.
+  - name: ignore_idle_slots
+    description: >
+      If false, any query using this reservation can use unused idle slots from other capacity commitments.
+  - name: reservation_id
+    description: >
+      For joining with the jobs_timeline table. This is of the form project_id:location.reservation_name.
+  - name: project_id
+    description: >
+      ID of the administration project.
+  - name: project_number
+    description: >
+      Number of the administration project.

@@ -1,0 +1,49 @@
+version: 2
+models:
+- name: stg_bq_info_schema__capacity_commitments
+  description: >
+    The INFORMATION_SCHEMA.CAPACITY_COMMITMENT_CHANGES view contains a list of all changes to capacity commitments 
+    within the administration project. Each row represents a single change to a single capacity commitment.
+  columns:
+  - name: capacity_commitment_id
+    description: >
+      ID that uniquely identifies the capacity commitment.
+  - name: changed_at
+    description: >
+      Time when the change occurred.
+  - name: action
+    description: >
+      Type of event that occurred with the capacity commitment. Can be CREATE, UPDATE, or DELETE.
+  - name: user_email
+    description: >
+      Email address of the user or subject of the workforce identity federation that made the change. google for 
+      changes made by Google. NULL if the email address is unknown.
+  - name: commitment_plan
+    description: >
+      Commitment plan of the capacity commitment.
+  - name: renewal_plan
+    description: >
+      The plan this capacity commitment is converted to after commitment_end_time passes. After the plan is changed, 
+      the committed period is extended according to the commitment plan. Only applicable for ANNUAL and TRIAL 
+      commitments, otherwise this is NULL.
+  - name: slot_count
+    description: >
+      Slot count associated with the capacity commitment.
+  - name: state
+    description: >
+      State the capacity commitment is in. Can be PENDING or ACTIVE.
+  - name: failure_status
+    description: >
+      For a FAILED commitment plan, provides the failure reason, otherwise this is NULL. RECORD consists of code and message.
+  - name: capacity_start_at
+    description: >
+      The start of the current commitment period. Only applicable for ACTIVE capacity commitments, otherwise this is NULL.
+  - name: capacity_end_at
+    description: >
+      The end of the current commitment period. Only applicable for ACTIVE capacity commitments, otherwise this is NULL.
+  - name: project_id
+    description: >
+      ID of the administration project.
+  - name: project_number
+    description: >
+      Number of the administration project.

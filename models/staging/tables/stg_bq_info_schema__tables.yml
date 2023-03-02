@@ -18,7 +18,7 @@ models:
       The table's creation time.
   - name: is_insertable_into
     description: >
-      YES or NO depending on whether the table supports DML INSERT statements.
+      Whether the table supports DML INSERT statements.
   - name: ddl
     description: >
       The DDL statement that can be used to recreate the table, such as CREATE TABLE or CREATE VIEW.

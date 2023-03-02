@@ -1,0 +1,37 @@
+version: 2
+models:
+- name: stg_bq_info_schema__reservation_changes
+  description: >
+    The INFORMATION_SCHEMA.RESERVATION_CHANGES view contains a list of all changes to reservations within the administration project. Each row 
+    represents a change to a single reservation.
+  columns:
+  - name: reservation_name
+    description: >
+      User provided reservation name.
+  - name: changed_at
+    description: >
+      Time when the change occurred.
+  - name: action
+    description: >
+      Type of event that occurred with the reservation. Can be CREATE, UPDATE, or DELETE.
+  - name: user_email
+    description: >
+      Email address of the user or subject of the workforce identity federation that made the change. google for changes made by Google. 
+      NULL if the email address is unknown.
+  - name: slot_capacity
+    description: >
+      Slot capacity associated of the reservation.
+  - name: autoscale
+    description: >
+      Information about the autoscale capacity of the reservation. Fields include the following:
+      * current_slots: the current slots assigned to the reservation.
+      * max_slots: the maximum number of slots assigned to the reservation.
+  - name: ignore_idle_slots
+    description: >
+      If false, any query using this reservation can use unused idle slots from other capacity commitments.
+  - name: project_id
+    description: >
+      ID of the administration project.
+  - name: project_number
+    description: >
+      Number of the administration project.

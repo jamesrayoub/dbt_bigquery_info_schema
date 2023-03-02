@@ -6,6 +6,9 @@ models:
     This view contains currently running and completed jobs. When you query the INFORMATION_SCHEMA.JOBS_TIMELINE_BY_* views, the query results 
     contain one row for every second of execution of every BigQuery job. Each period starts on a whole-second interval and lasts exactly one second.
   columns:
+  - name: job_id
+    description: >
+      ID of the job. For example, bquxjob_1234.
   - name: period_started_at
     description: >
       Start time of this period.
@@ -18,9 +21,6 @@ models:
   - name: job_ended_at
     description: >
       End time of this job.
-  - name: job_id
-    description: >
-      ID of the job. For example, bquxjob_1234.
   - name: reservation_id
     description: >
       Name of the primary reservation assigned to this job at the end of this period, if applicable.

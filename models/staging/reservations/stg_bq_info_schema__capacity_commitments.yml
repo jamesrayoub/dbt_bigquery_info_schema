@@ -1,0 +1,28 @@
+version: 2
+models:
+- name: stg_bq_info_schema__capacity_commitments
+  description: >
+    The INFORMATION_SCHEMA.CAPACITY_COMMITMENTS view contains a list of all current capacity commitments within the administration project. 
+    Each row represents a single, current capacity commitment. A current capacity commitment is either pending or active and has not been deleted.
+  columns:
+  - name: capacity_commitment_id
+    description: >
+      ID that uniquely identifies the capacity commitment.
+  - name: commitment_plan
+    description: >
+      Commitment plan of the capacity commitment.
+  - name: slot_count
+    description: >
+      Slot count associated with the capacity commitment.
+  - name: state
+    description: >
+      State the capacity commitment is in. Can be PENDING or ACTIVE.
+  - name: ddl
+    description: >
+      The DDL statement used to create this capacity commitment.
+  - name: project_id
+    description: >
+      ID of the administration project.
+  - name: project_number
+    description: >
+      Number of the administration project.

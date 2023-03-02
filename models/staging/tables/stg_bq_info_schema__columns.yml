@@ -1,0 +1,42 @@
+version: 2
+models:
+- name: stg_bq_info_schema__columns
+  description: >
+    The INFORMATION_SCHEMA.COLUMNS view contains one row for each column (field) in a table.
+  columns:
+  - name: project_id
+    description: >
+      The project ID of the project that contains the dataset.
+  - name: dataset_id
+    description: >
+      The name of the dataset that contains the table also referred to as the datasetId.
+  - name: table_id
+    description: >
+      The name of the table or view also referred to as the tableId.
+  - name: column_name
+    description: >
+      The name of the column.
+  - name: ordinal_position
+    description: >
+      The 1-indexed offset of the column within the table; if it's a pseudo column such as 
+      _PARTITIONTIME or _PARTITIONDATE, the value is NULL.
+  - name: data_type
+    description: >
+      The column's GoogleSQL [data type](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types)
+  - name: is_nullable
+    description: >
+      Whether the column's mode allows NULL values.
+  - name: is_hidden
+    description: >
+      Whether the column is a pseudo column such as _PARTITIONTIME or _PARTITIONDATE.
+  - name: is_system_defined
+    description: >
+      Whether the column is a pseudo column such as _PARTITIONTIME or _PARTITIONDATE.
+  - name: is_partitioning_column
+    description: >
+      Whether the column is a partitioning column.
+  - name: clustering_ordinal_position
+    description: >
+      The 1-indexed offset of the column within the table's clustering columns; the value is NULL if the table is 
+      not a clustered table.
+  
