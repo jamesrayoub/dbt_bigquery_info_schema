@@ -1,6 +1,6 @@
 version: 2
 models:
-- name: stg_bq_info_schema__jobs
+- name: int_bq_info_schema_jobs_incremental
   description: >
     The INFORMATION_SCHEMA.JOBS view contains the real-time metadata about all BigQuery jobs in the current project.
   columns:
