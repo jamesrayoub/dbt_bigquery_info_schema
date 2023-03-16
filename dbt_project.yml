@@ -1,0 +1,11 @@
+config-version: 2
+name: 'dbt_bigquery_info_schema'
+version: '0.0.1'
+
+models:
+  dbt_bigquery_info_schema:
+    +schema: bq_info_schema
+
+vars:
+  dbt_bigquery_info_schema:
+    flat_rate_pricing_enabled: false

@@ -1,0 +1,49 @@
+version: 2
+models:
+- name: stg_bq_info_schema__table_storage
+  description: >
+    The INFORMATION_SCHEMA.TABLE_STORAGE view provides a current snapshot of storage usage for tables and
+    materialized views. When you query the INFORMATION_SCHEMA.TABLE_STORAGE view, the query results contain
+    one row for each table or materialized view for the current project.
+  columns:
+  - name: project_id
+    description: >
+      The project ID of the project that contains the dataset.
+  - name: dataset_id
+    description: >
+      The name of the dataset that contains the table also referred to as the datasetId.
+  - name: table_id
+    description: >
+      The name of the table or view also referred to as the tableId.
+  - name: created_at
+    description: >
+      The table's creation time.
+  - name: storage_last_modified_time
+    description: >
+      The table storage's last modified time.
+  - name: total_rows
+    description: >
+      The total number of rows in the table or materialized view.
+  - name: total_partitions
+    description: >
+      The number of partitions present in the table or materialized view. Unpartitioned tables return 0.
+  - name: total_logical_bytes
+    description: >
+      Total number of logical (uncompressed) bytes in the table or materialized view.
+  - name: active_logical_bytes
+    description: >
+      Number of logical (uncompressed) bytes that are less than 90 days old.
+  - name: long_term_logical_bytes
+    description: >
+      Number of logical (uncompressed) bytes that are more than 90 days old.
+  - name: total_physical_bytes
+    description: >
+      Total number of physical (compressed) bytes used for storage, including active, long term, and time 
+      travel (deleted or changed data) bytes.
+  - name: active_physical_bytes
+    description: >
+      Number of physical (compressed) bytes less than 90 days old, including time travel (deleted or changed 
+      data) bytes.
+  - name: long_term_physical_bytes
+    description: >
+      Number of physical (compressed) bytes more than 90 days old.

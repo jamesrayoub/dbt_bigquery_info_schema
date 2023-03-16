@@ -1,0 +1,16 @@
+version: 2
+models:
+- name: daily_avg_slot_consumption
+  description: >
+    This table provides daily slot consumption distribution in 100 slot increments. Useful for those on on-demand plans looking
+    to determine the proper number of slots to reserve.
+  columns:
+  - name: period_date
+    description: >
+      The period date.
+  - name: avg_slot_consumption_lower_bound
+    description: >
+      The lower bound of avg slot consumption; i.e. 0 represents the 0 to 100 bucket.
+  - name: total_minutes
+    description: >
+      The sum of minutes within that slot consumption bucket on that day.

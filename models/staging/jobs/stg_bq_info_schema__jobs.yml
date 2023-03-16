@@ -1,0 +1,110 @@
+version: 2
+models:
+- name: stg_bq_info_schema__jobs
+  description: >
+    The INFORMATION_SCHEMA.JOBS view contains the real-time metadata about all BigQuery jobs in the current project.
+  columns:
+  - name: job_id
+    description: >
+      The ID of the job. For example, bquxjob_1234.
+  - name: created_at
+    description: >
+      Creation time of this job. Partitioning is based on the UTC time of this timestamp. (Partitioning column)
+  - name: started_at
+    description: >
+      Start time of this job.
+  - name: ended_at
+    description: >
+      End time of this job.
+  - name: parent_job_id
+    description: >
+      ID of the parent job, if any.
+  - name: reservation_id
+    description: >
+      Name of the primary reservation assigned to this job, in the format RESERVATION_ADMIN_PROJECT:RESERVATION_LOCATION.RESERVATION_NAME.
+      In this output: 
+      * RESERVATION_ADMIN_PROJECT: the name of the Google Cloud project that administers the reservation.
+      * RESERVATION_LOCATION: the location of the reservation.
+      * RESERVATION_NAME: the name of the reservation.
+  - name: transaction_id
+    description: >
+      ID of the transaction in which this job ran, if any.
+  - name: job_state
+    description: >
+      Running state of the job. Valid states include PENDING, RUNNING, and DONE. 
+  - name: user_email
+    description: >
+      Email address or service account of the user who ran the job. (Clustering column)
+  - name: job_type
+    description: >
+      The type of the job. Can be QUERY, LOAD, EXTRACT, COPY, or NULL. A NULL value indicates an internal job, 
+      such as a script job statement evaluation or a materialized view refresh.
+  - name: statement_type
+    description: >
+      The type of query statement. For example, DELETE, INSERT, SCRIPT, SELECT, or UPDATE. See 
+      [QueryStatementType](https://cloud.google.com/bigquery/docs/reference/auditlogs/rest/Shared.Types/BigQueryAuditMetadata.QueryStatementType) 
+      for list of valid values.
+  - name: priority
+    description: >
+      The priority of this job. Valid values include INTERACTIVE and BATCH.
+  - name: is_cache_hit
+    description: >
+      Whether the query results of this job were from a cache. If you have a multi-query statement job, 
+      cache_hit for your parent query is NULL.
+  - name: query
+    description: >
+      SQL query text.
+  - name: project_id
+    description: >
+      The ID of the project. (Clustering column)
+  - name: project_number
+    description: >
+      The number of the project.
+  - name: destination_table
+    description: >
+      Destination table for results, if any.
+  - name: dml_statistics
+    description: >
+      If the job is a query with a DML statement, the value is a record with the following fields: 
+      * inserted_row_count: The number of rows that were inserted
+      * deleted_row_count: The number of rows that were deleted.
+      * updated_row_count: The number of rows that were updated.
+      For all other jobs, the value is NULL.
+  - name: error_result
+    description: >
+      Details of any errors as [ErrorProto](https://cloud.google.com/bigquery/docs/reference/rest/v2/ErrorProto) objects.
+  - name: session_info
+    description: >
+      Details about the session in which this job ran, if any.
+  - name: bi_engine_statistics
+    description: >
+      If the project is configured to use the BI Engine SQL Interface, then this field contains BiEngineStatistics. Otherwise NULL.
+  - name: labels
+    description: >
+      Array of labels applied to the job as key-value pairs.
+  - name: referenced_tables
+    description: >
+      Array of tables referenced by the job. Only populated for query jobs.
+  - name: job_stages
+    description: >
+      [Query stages](https://cloud.google.com/bigquery/docs/reference/rest/v2/Job#ExplainQueryStage) of the job.
+  - name: timeline
+    description: >
+      [Query timeline](https://cloud.google.com/bigquery/docs/reference/rest/v2/Job#QueryTimelineSample) of the job. 
+      Contains snapshots of query execution.
+  - name: total_slot_ms
+    description: >
+      Slot milliseconds for the job over its entire duration.
+  - name: total_bytes_billed
+    description: >
+      If the project is configured to use on-demand pricing, then this field contains the total bytes billed for the job. 
+      If the project is configured to use flat-rate pricing, then you are not billed for bytes and this field is informational only.
+  - name: total_bytes_processed
+    description: >
+      Total bytes processed by the job.
+  - name: total_bytes_transferred
+    description: >
+      Total bytes transferred for cross-cloud queries, such as BigQuery Omni cross-cloud transfer jobs.
+  - name: total_partitions_modified
+    description: >
+      The total number of partitions the job modified. This field is populated for LOAD and QUERY jobs.

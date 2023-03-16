@@ -1,0 +1,24 @@
+version: 2
+models:
+- name: stg_bq_info_schema__tables
+  description: >
+    The INFORMATION_SCHEMA.TABLES view contains one row for each table or view in a dataset.
+  columns:
+  - name: project_id
+    description: >
+      The project ID of the project that contains the dataset.
+  - name: dataset_id
+    description: >
+      The name of the dataset that contains the table also referred to as the datasetId.
+  - name: table_id
+    description: >
+      The name of the table or view also referred to as the tableId.
+  - name: created_at
+    description: >
+      The table's creation time.
+  - name: is_insertable_into
+    description: >
+      Whether the table supports DML INSERT statements.
+  - name: ddl
+    description: >
+      The DDL statement that can be used to recreate the table, such as CREATE TABLE or CREATE VIEW.

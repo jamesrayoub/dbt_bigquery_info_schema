@@ -1,0 +1,44 @@
+version: 2
+models:
+- name: stg_bq_info_schema__assignments
+  description: >
+    he INFORMATION_SCHEMA.ASSIGNMENT_CHANGES view contains a list of all changes to assignments within 
+    the administration project. Each row represents a single change to a single assignment.
+  columns:
+  - name: assignment_id
+    description: >
+      ID that uniquely identifies the assignment.
+  - name: changed_at
+    description: >
+      Time when the change occurred.
+  - name: action
+    description: >
+      Type of event that occurred with the assignment. Can be CREATE, UPDATE, or DELETE.
+  - name: user_email
+    description: >
+      Email address of the user or subject of the workforce identity federation that made the change. google for 
+      changes made by Google. NULL if the email address is unknown.
+  - name: job_type
+    description: >
+      The type of job that can use the reservation. Can be PIPELINE or QUERY.
+  - name: reservation_name
+    description: >
+      Name of the reservation that the assignment uses.
+  - name: state
+    description: >
+      State of the assignment. Can be PENDING or ACTIVE.
+  - name: assignee_id
+    description: >
+      ID that uniquely identifies the assignee resource.
+  - name: assignee_number
+    description: >
+      Number that uniquely identifies the assignee resource.
+  - name: assignee_type
+    description: >
+      Type of assignee resource. Can be organization, folder or project.
+  - name: project_id
+    description: >
+      ID of the administration project.
+  - name: project_number
+    description: >
+      Number of the administration project.

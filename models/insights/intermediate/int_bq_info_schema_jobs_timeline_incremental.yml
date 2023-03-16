@@ -1,0 +1,62 @@
+version: 2
+models:
+- name: int_bq_info_schema_jobs_timeline_incremental
+  description: >
+    The INFORMATION_SCHEMA.JOBS_TIMELINE view contains real-time BigQuery metadata by timeslice for all jobs submitted in the current project.
+  columns:
+  - name: job_id
+    description: >
+      ID of the job. For example, bquxjob_1234.
+  - name: period_started_at
+    description: >
+      Start time of this period.
+  - name: job_created_at
+    description: >
+      Creation time of this job. Partitioning is based on the UTC time of this timestamp. (Partitioning column)
+  - name: job_started_at
+    description: >
+      Start time of this job.
+  - name: job_ended_at
+    description: >
+      End time of this job.
+  - name: reservation_id
+    description: >
+      Name of the primary reservation assigned to this job at the end of this period, if applicable.
+  - name: job_state
+    description: >
+      Running state of the job. Valid states include PENDING, RUNNING, and DONE. 
+  - name: user_email
+    description: >
+      Email address or service account of the user who ran the job. (Clustering column)
+  - name: job_type
+    description: >
+      The type of the job. Can be QUERY, LOAD, EXTRACT, COPY, or NULL. A NULL value indicates an internal job, 
+      such as a script job statement evaluation or a materialized view refresh.
+  - name: statement_type
+    description: >
+      The type of query statement. For example, DELETE, INSERT, SCRIPT, SELECT, or UPDATE.
+  - name: is_cache_hit
+    description: >
+      Whether the query results of this job were from a cache.
+  - name: project_id
+    description: >
+      The ID of the project. (Clustering column)
+  - name: project_number
+    description: >
+      The number of the project.
+  - name: error_result
+    description: >
+      Details of any errors as [ErrorProto](https://cloud.google.com/bigquery/docs/reference/rest/v2/ErrorProto) objects.
+  - name: period_shuffle_ram_usage_ratio
+    description: >
+      Shuffle usage ratio in the selected time period.
+  - name: period_estimated_runnable_units
+    description: >
+      Units of work that can be scheduled immediately in this period. Additional slots for these units of work accelerate 
+      your query, provided no other query in the reservation needs additional slots.
+  - name: period_slot_ms
+    description: >
+      Slot milliseconds consumed in this period.
+  - name: total_bytes_processed
+    description: >
+      Total bytes processed by the job.

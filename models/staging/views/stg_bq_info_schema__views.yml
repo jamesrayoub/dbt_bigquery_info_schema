@@ -1,0 +1,22 @@
+version: 2
+models:
+- name: stg_bq_info_schema__views
+  description: >
+    The INFORMATION_SCHEMA.VIEWS view contains metadata about views.
+  columns:
+  - name: project_id
+    description: >
+      The project ID of the project that contains the dataset.
+  - name: dataset_id
+    description: >
+      The name of the dataset that contains the table also referred to as the datasetId.
+  - name: table_id
+    description: >
+      The name of the table or view also referred to as the tableId.
+  - name: view_definition
+    description: >
+      The SQL query that defines the view.
+  - name: uses_standard_sql
+    description: >
+      Whether the view was created by using a GoogleSQL query; false if useLegacySql is set to true.
+  
