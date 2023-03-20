@@ -7,7 +7,7 @@
   config(
     materialized = 'incremental',
     incremental_strategy = 'insert_overwrite',
-    partition_by = {'field': 'job_created_at', 'data_type': 'timestamp'},
+    partition_by = {'field': 'period_date', 'data_type': 'date'},
     partitions = partitions_to_replace,
   )
 }}

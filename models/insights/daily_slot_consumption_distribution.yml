@@ -1,6 +1,6 @@
 version: 2
 models:
-- name: daily_avg_slot_consumption
+- name: daily_slot_consumption_distribution
   description: >
     This table provides daily slot consumption distribution in 100 slot increments. Useful for those on on-demand plans looking
     to determine the proper number of slots to reserve.
