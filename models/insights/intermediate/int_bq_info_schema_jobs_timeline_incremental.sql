@@ -17,5 +17,5 @@ select * from {{ ref('stg_bq_info_schema__jobs_timeline') }}
 
 {% if is_incremental() %}
 -- recalculate yesterday + today
-where timestamp_trunc(created_at, day) in ({{ partitions_to_replace | join(',') }})
+where timestamp_trunc(job_created_at, day) in ({{ partitions_to_replace | join(',') }})
 {% endif %}
