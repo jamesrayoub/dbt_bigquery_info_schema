@@ -9,3 +9,7 @@ models:
 vars:
   dbt_bigquery_info_schema:
     flat_rate_pricing_enabled: false
+    logical_active_rate: 0.02
+    logical_long_term_rate: 0.01
+    physical_active_rate: 0.04
+    physical_long_term_rate: 0.02
