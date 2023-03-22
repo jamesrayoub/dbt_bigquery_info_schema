@@ -1,0 +1,58 @@
+version: 2
+models:
+- name: table_stats
+  config:
+    materialized: table
+  description: >
+    This table provides basic storage and usage metrics for all BASE TABLE types.
+  columns:
+  - name: project_id
+    description: >
+      The project ID of the project that contains the dataset.
+  - name: dataset_id
+    description: >
+      The name of the dataset that contains the table also referred to as the datasetId.
+  - name: table_id
+    description: >
+      The name of the table or view also referred to as the tableId.
+  - name: created_at
+    description: >
+      The table's creation time.
+  - name: storage_last_modified_time
+    description: >
+      The table storage's last modified time.
+  - name: total_rows
+    description: >
+      The total number of rows in the table or materialized view.
+  - name: total_partitions
+    description: >
+      The number of partitions present in the table or materialized view. Unpartitioned tables return 0.
+  - name: total_logical_bytes
+    description: >
+      Total number of logical (uncompressed) bytes in the table or materialized view.
+  - name: active_logical_bytes
+    description: >
+      Number of logical (uncompressed) bytes that are less than 90 days old.
+  - name: long_term_logical_bytes
+    description: >
+      Number of logical (uncompressed) bytes that are more than 90 days old.
+  - name: total_physical_bytes
+    description: >
+      Total number of physical (compressed) bytes used for storage, including active, long term, and time 
+      travel (deleted or changed data) bytes.
+  - name: active_physical_bytes
+    description: >
+      Number of physical (compressed) bytes less than 90 days old, including time travel (deleted or changed 
+      data) bytes.
+  - name: long_term_physical_bytes
+    description: >
+      Number of physical (compressed) bytes more than 90 days old.
+  - name: last_30_day_query_references
+    description: >
+      Number of QUERY job references in the last 30 days.
+  - name: last_90_day_query_references
+    description: >
+      Number of QUERY job references in the last 90 days.
+  - name: last_180_day_query_references
+    description: >
+      Number of QUERY job references in the last 180 days.
