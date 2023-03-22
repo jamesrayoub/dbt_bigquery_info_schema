@@ -16,6 +16,9 @@ models:
   - name: created_at
     description: >
       The table's creation time.
+  - name: table_type
+    description: >
+      The table's type.
   - name: is_insertable_into
     description: >
       Whether the table supports DML INSERT statements.
