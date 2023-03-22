@@ -25,7 +25,7 @@ with minute_slot_aggregation as (
     where timestamp_trunc(job_created_at, day) in ({{ partitions_to_replace | join(',') }})
     {% endif %}
     
-    group by 1
+    {{ dbt_utils.group_by(n=1) }}
 
 )
 
@@ -36,4 +36,4 @@ select
 
 from minute_slot_aggregation
 
-group by 1,2
+{{ dbt_utils.group_by(n=2) }}
