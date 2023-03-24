@@ -17,9 +17,9 @@ select
       + (table_storage.active_physical_bytes / power(1024, 3) * {{ var('physical_active_rate') }})
       + (table_storage.long_term_physical_bytes / power(1024, 3) * {{ var('physical_long_term_rate') }})
     ) as estimated_monthly_storage_cost,
-    table_references.last_30_day_query_references,
-    table_references.last_90_day_query_references,
-    table_references.last_180_day_query_references
+    coalesce(table_references.last_30_day_query_references,0) as last_30_day_query_references,
+    coalesce(table_references.last_90_day_query_references,0) as last_90_day_query_references,
+    coalesce(table_references.last_180_day_query_references,0) as last_180_day_query_references
 
 from {{ ref('stg_bq_info_schema__tables') }} as tables
 
