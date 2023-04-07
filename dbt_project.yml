@@ -1,13 +1,13 @@
 config-version: 2
-name: 'dbt_bigquery_info_schema'
+name: 'bigquery_info_schema'
 version: '0.0.1'
 
 models:
-  dbt_bigquery_info_schema:
+  bigquery_info_schema:
     +schema: bq_info_schema
 
 vars:
-  dbt_bigquery_info_schema:
+  bigquery_info_schema:
     flat_rate_pricing_enabled: false
     logical_active_rate: 0.02
     logical_long_term_rate: 0.01
