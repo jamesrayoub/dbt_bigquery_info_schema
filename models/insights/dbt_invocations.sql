@@ -1,14 +1,8 @@
-{% set partitions_to_replace = [
-  'timestamp(current_date)',
-  'timestamp(date_sub(current_date, interval 1 day))'
-] %}
-
 {{
   config(
     materialized = 'incremental',
     incremental_strategy = 'insert_overwrite',
-    partition_by = {'field': 'jobs_started_at', 'data_type': 'timestamp'},
-    partitions = partitions_to_replace
+    partition_by = {'field': 'jobs_started_at', 'data_type': 'timestamp'}
   )
 }}
 
@@ -29,8 +23,8 @@ inner join unnest(labels) as labels
 where labels.key = 'dbt_invocation_id'
 
 {%- if is_incremental() %}
-    -- recalculate yesterday + today
-    and timestamp_trunc(created_at, day) in ({{ partitions_to_replace | join(',') }})
+    -- recalculate latest day's data + previous
+    where date(created_at) >= date_sub(date(_dbt_max_partition), interval 1 day)
 {%- endif %}
 
 {{ dbt_utils.group_by(n=1) }}
