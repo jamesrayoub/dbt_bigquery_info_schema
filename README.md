@@ -47,7 +47,7 @@ If you use flat-rate pricing, you'll need to set the `flat_rate_pricing_enabled`
 ```yml
 # dbt_project.yml
 vars:
-  dbt_bigquery_info_schema:
+  bigquery_info_schema:
     flat_rate_pricing_enabled: false
 ```
 
@@ -58,7 +58,7 @@ By default, this package builds the models within a schema titled (`<target_sche
 
 ```yml
 models:
-    dbt_bigquery_info_schema:
+    bigquery_info_schema:
       +schema: my_new_schema_name # leave blank for just the target_schema
 ```
 
