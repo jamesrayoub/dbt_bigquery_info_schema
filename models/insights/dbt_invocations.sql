@@ -24,7 +24,7 @@ where labels.key = 'dbt_invocation_id'
 
 {%- if is_incremental() %}
     -- recalculate latest day's data + previous
-    where date(created_at) >= date_sub(date(_dbt_max_partition), interval 1 day)
+    and date(created_at) >= date_sub(date(_dbt_max_partition), interval 1 day)
 {%- endif %}
 
 {{ dbt_utils.group_by(n=1) }}
