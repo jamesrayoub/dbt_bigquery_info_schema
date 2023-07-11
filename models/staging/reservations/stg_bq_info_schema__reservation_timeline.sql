@@ -1,4 +1,4 @@
-{{ config(enabled=(var('flat_rate_pricing_enabled', false))) }}
+{{ config(enabled=(var('capacity_compute_pricing_enabled', false))) }}
 
 select
     /* primary keys */

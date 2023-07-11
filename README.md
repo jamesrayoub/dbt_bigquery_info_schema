@@ -16,7 +16,7 @@
     - RESERVATION_CHANGES
 - Incrementally builds tables (i.e. JOBS, JOBS_TIMELINE, etc.) to remove the 180 day data rentention barrier.
 - Provides insightful models to help answer questions like:
-  - If I switch from on-demand pricing to flat-rate pricing, how many slots should I reserve?
+  - If I switch from on-demand pricing to capacity-compute pricing, how many slots should I reserve?
   - Am I building/storing tables which are hardly used?
 
 # 🎯 How do I use the dbt package?
@@ -28,9 +28,9 @@ To use this dbt package, you must have the following:
   - bigquery.tables.list
   - bigquery.routines.get
   - bigquery.routines.list
-  - bigquery.reservationAssignments.list (_if flat-rate pricing_)
-  - bigquery.capacityCommitments.list (_if flat-rate pricing_)
-  - bigquery.reservations.list (_if flat-rate pricing_)
+  - bigquery.reservationAssignments.list (_if capacity-compute pricing_)
+  - bigquery.capacityCommitments.list (_if capacity-compute pricing_)
+  - bigquery.reservations.list (_if capacity-compute pricing_)
 
 ## Step 2: Install the package
 Include the package in your `packages.yml` file.
@@ -40,15 +40,15 @@ packages:
   - git: "https://github.com/jamesrayoub/dbt_bigquery_info_schema.git" # git URL
     revision: 0.0.1 # tag or branch name
 ```
-## Step 3: Set variable for flat-rate pricing (if applicable)
-If you use flat-rate pricing, you'll need to set the `flat_rate_pricing_enabled` variable equal to `true` in your `dbt_project.yml` file to enable staging models related to reservations.
+## Step 3: Set variable for capacity-compute pricing (if applicable)
+If you use capacity-compute pricing, you'll need to set the `capacity_compute_pricing_enabled` variable equal to `true` in your `dbt_project.yml` file to enable staging models related to reservations.
 
 
 ```yml
 # dbt_project.yml
 vars:
   bigquery_info_schema:
-    flat_rate_pricing_enabled: false
+    capacity_compute_pricing_enabled: false
 ```
 
 ## (Optional) Step 4: Additional configurations
