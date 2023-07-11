@@ -73,12 +73,6 @@ models:
   - name: error_result
     description: >
       Details of any errors as [ErrorProto](https://cloud.google.com/bigquery/docs/reference/rest/v2/ErrorProto) objects.
-  - name: session_info
-    description: >
-      Details about the session in which this job ran, if any.
-  - name: bi_engine_statistics
-    description: >
-      If the project is configured to use the BI Engine SQL Interface, then this field contains BiEngineStatistics. Otherwise NULL.
   - name: labels
     description: >
       Array of labels applied to the job as key-value pairs.

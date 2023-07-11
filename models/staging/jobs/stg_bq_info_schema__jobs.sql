@@ -22,8 +22,6 @@ select
     destination_table,
     dml_statistics,
     error_result,
-	session_info,
-    bi_engine_statistics,
 	/* records */
     labels,
     referenced_tables,
