@@ -8,9 +8,9 @@ models:
   - name: period_date
     description: >
       The period date.
-  - name: avg_slot_consumption_lower_bound
+  - name: slot_hour_rate_lower_bound
     description: >
-      The lower bound of avg slot consumption; i.e. 0 represents the 0 to 100 bucket.
+      The lower bound of slot hour rate; i.e. 0 represents the 0 to 100 bucket.
   - name: total_minutes
     description: >
       The sum of minutes within that slot consumption bucket on that day.
