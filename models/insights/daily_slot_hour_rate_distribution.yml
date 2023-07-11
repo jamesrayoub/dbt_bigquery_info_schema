@@ -1,8 +1,8 @@
 version: 2
 models:
-- name: daily_slot_consumption_distribution
+- name: daily_slot_hour_rate_distribution
   description: >
-    This table provides daily slot consumption distribution in 100 slot increments. Useful for those on on-demand plans looking
+    This table provides daily slot hour rate distribution in 100 slot increments. Useful for those on on-demand plans looking
     to determine the proper number of slots to reserve.
   columns:
   - name: period_date

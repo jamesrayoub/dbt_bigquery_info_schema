@@ -10,7 +10,7 @@ with minute_slot_aggregation as (
   
     select
         timestamp_trunc(period_started_at, minute) as period_start_minute,
-        sum(period_slot_ms)/(1000 * 60) as avg_slot_consumption
+        sum(period_slot_ms)/(1000 * 60) as slot_hour_rate
     
     from {{ ref('int_bq_info_schema_jobs_timeline_incremental') }}
 
@@ -25,7 +25,7 @@ with minute_slot_aggregation as (
 
 select
   date(period_start_minute) as period_date,
-  floor(avg_slot_consumption/100) * 100 as avg_slot_consumption_lower_bound,
+  floor(slot_hour_rate/100) * 100 as slot_hour_rate_lower_bound,
   count(*) as total_minutes
 
 from minute_slot_aggregation
